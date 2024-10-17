@@ -12,8 +12,12 @@ const Port = process.env.PORT;
 const db = process.env.DB_URL;
 
 try {
+ const DbConnect=async()=>{
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
   console.log("Connected to MongoDB");
+ }
+ DbConnect()
+  
 } catch (error) {
   console.error("Error connecting to MongoDB:", error);
 }
